@@ -8,6 +8,7 @@ require.config({
         'jquery': '../lib/jquery.min',
         'angular': '../lib/angular.min',
         'bootstrap': '../lib/bootstrap.min',
+        'director': '../lib/director'
     },
     //依赖关系
     shim: {
@@ -22,7 +23,7 @@ require.config({
         },
         //houdunren.com
         'bootstrap': {
-            'deps': ['jquery', 'css!../css/bootstrap.min.css', 'css!../css/font-awesome.min.css']
+            'deps': ['jquery', 'css!../css/bootstrap.min.css']
         }
     }
 });
