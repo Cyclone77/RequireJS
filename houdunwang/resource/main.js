@@ -21,6 +21,9 @@ require.config({
                 }
             }
         },
+        'director':{
+            exports: "Router"
+        },
         //houdunren.com
         'bootstrap': {
             'deps': ['jquery', 'css!../css/bootstrap.min.css']
