@@ -1,42 +1,46 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>requireJs</title>
 </head>
+
 <body>
-<ul>
-    <li><a href="#/author">#/author</a></li>
-    <li><a href="#/books">#/books</a></li>
-    <li><a href="#/books/view/1">#/books/view/1</a></li>
-</ul>
-<script src="../resource/require.js"></script>
-<script src="../resource/main.js"></script>
-<script>
-    require(['bootstrap', 'director'], function (a, b) {
-        var author = function() {
-            console.log("author");
-        };
-        var books = function() {
-            console.log("books");
-        };
-        var viewBook = function(bookId) {
-            console.log("viewBook: bookId is populated: " + bookId);
-        };
+    <ul>
+        <li><a href="#/author">#/author</a></li>
+        <li><a href="#/books">#/books</a></li>
+        <li><a href="#/books/view/1">#/books/view/1</a></li>
+        <li><a href="#/books/view/2">#/books/view/2</a></li>
+    </ul>
+    <script src="../resource/require.js"></script>
+    <script src="../resource/main.js"></script>
+    <script>
+        require(['bootstrap', 'director'], function(a, b) {
+            var author = function() {
+                console.log("author");
+            };
+            var books = function() {
+                console.log("books");
+            };
+            var viewBook = function(bookId) {
+                console.log("viewBook: bookId is populated: " + bookId);
+            };
 
-        var routes = {
-            '/author': author,
-            '/books': [books, function() {
-                console.log("An inline route handler.");
-            }],
-            '/books/view/:bookId': viewBook
-        };
+            var routes = {
+                '/author': author,
+                '/books': [books, function() {
+                    console.log("An inline route handler.");
+                }],
+                '/books/view/:bookId': viewBook
+            };
 
-        var router = b(routes);
+            var router = b(routes);
 
-        router.init();
-    })
-</script>
+            router.init();
+        })
+    </script>
 </body>
+
 </html>

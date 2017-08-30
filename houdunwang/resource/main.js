@@ -14,14 +14,14 @@ require.config({
     shim: {
         'hd': {
             // exports: 'modal',
-            init: function () {
+            init: function() {
                 return {
                     modal: modal,
                     success: success,
                 }
             }
         },
-        'director':{
+        'director': {
             exports: "Router"
         },
         //houdunren.com
