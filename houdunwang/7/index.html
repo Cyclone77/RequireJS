@@ -13,6 +13,7 @@
         <li><a href="#/books">#/books</a></li>
         <li><a href="#/books/view/1">#/books/view/1</a></li>
         <li><a href="#/books/view/2">#/books/view/2</a></li>
+        <li><a href="#/cs">#/测试</a></li>
     </ul>
     <script src="../resource/require.js"></script>
     <script src="../resource/main.js"></script>
@@ -35,10 +36,12 @@
                 }],
                 '/books/view/:bookId': viewBook
             };
-
             var router = b(routes);
 
             router.init();
+            router.on("/cs", function() {
+                console.log("测试");
+            })
         })
     </script>
 </body>
