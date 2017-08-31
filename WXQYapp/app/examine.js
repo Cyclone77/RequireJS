@@ -1,6 +1,6 @@
-define(['common', 'util'], function (common, util) {
+define(['common', 'util'], function(common, util) {
 
-    var 
+    var
         result = null,
         $el = $(".receive"),
         audit = {
@@ -31,15 +31,15 @@ define(['common', 'util'], function (common, util) {
         var html = [
             '<div class="spinner"></div>',
             '<div class="finish hide">',
-                '<p>恭喜你没有未完成任务，继续加油！！！</p>',
+            '<p>恭喜你没有未完成任务，继续加油！！！</p>',
             '</div>',
         ];
-        $el.append(html);
+        $el.append(html.join(""));
     }
 
     //获得任务列表
     function getReceiveTaskData() {
-        $.getJSON("Service.ashx", { Action: "GetUserReceiveTaskData" }, function (res) {
+        $.getJSON("Service.ashx", { Action: "GetUserReceiveTaskData" }, function(res) {
             if (res.length > 0) {
                 result = res;
                 bulidHTMLReceiveList();
@@ -52,15 +52,15 @@ define(['common', 'util'], function (common, util) {
     function bulidHTMLReceiveList() {
         var html = [
             '<div class="panel panel-primary">',
-                '<div class="panel-heading">',
-                    '<h3 class="panel-title">任务状态: {1}</h3>',
-                '</div>',
-                '<div class="panel-body">{0}</div>',
+            '<div class="panel-heading">',
+            '<h3 class="panel-title">任务状态: {1}</h3>',
+            '</div>',
+            '<div class="panel-body">{0}</div>',
             '</div>'
         ].join("");
 
         $Tsk = [];
-        result.forEach(function (item) {
+        result.forEach(function(item) {
             $Tsk.push(util.format(html, item.I020G, audit[item.AuditState].text));
         });
 
@@ -68,7 +68,7 @@ define(['common', 'util'], function (common, util) {
     }
 
     return {
-        init: function () {
+        init: function() {
             common.updateTitle("查看任务", "目前尚未完成的任务。");
             initializeHTML();
             getReceiveTaskData();

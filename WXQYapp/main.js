@@ -24,9 +24,12 @@
     }
 });
 
-require(['bootstrap', 'director', 'common'], function (bs, route, common) {
+require(['bootstrap', 'director', 'common'], function(bs, route, common) {
+
+    if (!location.hash) location.hash = "/";
+
     var router = new route({
-        '/': function () {
+        '/': function() {
             common.updateTitle("运维平台", "四川广力软件科技有限公司-运维平台");
         },
         '/examine': intoExamine,
@@ -34,18 +37,19 @@ require(['bootstrap', 'director', 'common'], function (bs, route, common) {
     })
 
     router.init();
-    router.on(['/', '/examine', '/issues'], function () {
+    router.on(['/', '/examine', '/issues'], function() {
         $(".receive").empty();
     })
 
     function intoExamine() {
-        require(["examine"], function (examine) {
+        var ex = require('director');
+        require(["examine"], function(examine) {
             examine.init()
         });
     }
 
     function intoIssues() {
-        require(["issues"], function (issues) {
+        require(["issues"], function(issues) {
             issues.init()
         });
     }
