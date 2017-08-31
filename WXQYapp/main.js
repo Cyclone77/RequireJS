@@ -42,7 +42,6 @@ require(['bootstrap', 'director', 'common'], function(bs, route, common) {
     })
 
     function intoExamine() {
-        var ex = require('director');
         require(["examine"], function(examine) {
             examine.init()
         });
