@@ -35,7 +35,11 @@ require(['bootstrap', 'director', 'common'], function(bs, route, common) {
         '/examine': intoExamine,
         '/issues': intoIssues
     })
-
+    router.configure({
+        notfound: function() {
+            common.updateTitle("运维平台", "您所在访问的页面不存在！");
+        }
+    });
     router.init();
     router.on(['/', '/examine', '/issues'], function() {
         $(".receive").empty();
