@@ -1,7 +1,5 @@
 define(['common'], function(common) {
 
-
-
     return {
         init: function() {
             console.log("发布任务");

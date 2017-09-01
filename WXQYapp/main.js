@@ -5,6 +5,7 @@
         'jquery': "./../Resource/lib/jquery.min",
         'director': "./../Resource/lib/director",
         'css': "./../Resource/lib/css.min",
+        'text': './../Resource/lib/text',
         'bootstrap': "./../Resource/lib/bootstrap.min",
 
         //自定义工具
@@ -33,7 +34,8 @@ require(['bootstrap', 'director', 'common'], function(bs, route, common) {
             common.updateTitle("运维平台", "四川广力软件科技有限公司-运维平台");
         },
         '/examine': intoExamine,
-        '/issues': intoIssues
+        '/issues': intoIssues,
+        '/log': log
     })
     router.configure({
         notfound: function() {
@@ -55,5 +57,11 @@ require(['bootstrap', 'director', 'common'], function(bs, route, common) {
         require(["issues"], function(issues) {
             issues.init()
         });
+    }
+
+    function log() {
+        require(["log"], function(log) {
+            log.init();
+        })
     }
 })
