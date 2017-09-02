@@ -6,6 +6,8 @@
         'director': "./../Resource/lib/director",
         'css': "./../Resource/lib/css.min",
         'text': './../Resource/lib/text',
+        'domReady': './../Resource/lib/domReady',
+
         'bootstrap': "./../Resource/lib/bootstrap.min",
 
         //自定义工具
@@ -25,7 +27,11 @@
     }
 });
 
-require(['bootstrap', 'director', 'common'], function(bs, route, common) {
+require(['domReady', 'bootstrap', 'director', 'common'], function(domReady, bs, route, common) {
+
+    domReady(function() {
+        console.log('dom加载完成！');
+    })
 
     if (!location.hash) location.hash = "/";
 
