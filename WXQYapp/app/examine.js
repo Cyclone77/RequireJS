@@ -1,4 +1,4 @@
-define(['common', 'util'], function(common, util) {
+define(['common', 'text!./../view/examine.html', 'util'], function(common, viewHTML, util) {
 
     var
         result = null,
@@ -26,16 +26,6 @@ define(['common', 'util'], function(common, util) {
             "15": { value: 3, text: "等待归档" },
             "16": { value: 3, text: "任务归档" }
         };
-
-    function initializeHTML() {
-        var html = [
-            '<div class="spinner"></div>',
-            '<div class="finish hide">',
-            '<p>恭喜你没有未完成任务，继续加油！！！</p>',
-            '</div>',
-        ];
-        $el.append(html.join(""));
-    }
 
     //获得任务列表
     function getReceiveTaskData() {
@@ -69,8 +59,7 @@ define(['common', 'util'], function(common, util) {
 
     return {
         init: function() {
-            common.updateTitle("查看任务", "目前尚未完成的任务。");
-            initializeHTML();
+            common.updateTitle("查看任务", "目前尚未完成的任务。", viewHTML);
             getReceiveTaskData();
         }
     }

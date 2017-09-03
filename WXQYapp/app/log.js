@@ -1,11 +1,10 @@
 define([
     'common',
     "text!./../view/log.html"
-], function(common, viewHTML) {
+], function(common, viewHTML, imglogo) {
     return {
         init: function() {
-            $(".receive").html(viewHTML);
-            common.updateTitle("日志系统", "日志系统，记录开发过程内容。");
+            common.updateTitle("日志系统", "日志系统，记录开发过程内容。", viewHTML);
         }
     }
 })
