@@ -24,8 +24,8 @@
     }
 });
 
-require(['domReady', 'css!./../Resource/utils/common.css', 'bootstrap', 'director', 'common'],
-    function(domReady, commoncss, bs, route, common) {
+require(['domReady', 'bootstrap', 'css!./../Resource/utils/common.css', 'director', 'common'],
+    function(domReady, bs, commoncss, route, common) {
 
         domReady(function() {
             console.log('dom加载完成！');
@@ -39,7 +39,8 @@ require(['domReady', 'css!./../Resource/utils/common.css', 'bootstrap', 'directo
             },
             '/examine': intoExamine,
             '/issues': intoIssues,
-            '/log': log
+            '/log': log,
+            '/signature': signature
         });
 
         router.configure({
@@ -67,6 +68,12 @@ require(['domReady', 'css!./../Resource/utils/common.css', 'bootstrap', 'directo
         function log() {
             require(["log"], function(log) {
                 log.init();
+            })
+        }
+
+        function signature() {
+            require(["signature"], function(signature) {
+                signature.init();
             })
         }
     })

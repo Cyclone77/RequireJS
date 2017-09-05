@@ -1,4 +1,12 @@
-﻿.hide {
+﻿.container {
+    margin-bottom: 10px;
+}
+
+.container .jumbotron {
+    border-radius: 0;
+}
+
+.hide {
     display: none;
 }
 
